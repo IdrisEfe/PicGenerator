@@ -87,22 +87,22 @@ def uretici(son_boyut):
     
     # 1. Transpose Evrişim Katmanı
     
-    model.add(Conv2D(128, (4,4), strides=(2,2), padding='same'))
+    model.add(Conv2DTranspose(128, (4,4), strides=(2,2), padding='same'))
     model.add(LeakyReLU(alpha=0.2))
     
     # 2. Transpoze Evrişim Katmanı
     
-    model.add(Conv2D(128, (4,4), strides=(2,2), padding='same'))
+    model.add(Conv2DTranspose(128, (4,4), strides=(2,2), padding='same'))
     model.add(LeakyReLU(alpha=0.2))
     
     # 3. Transpoze Evrişim Katmanı
     
-    model.add(Conv2D(256, (4,4), strides=(2,2), padding='same'))
+    model.add(Conv2DTranspose(256, (4,4), strides=(2,2), padding='same'))
     model.add(LeakyReLU(alpha=0.2))
     
     # Çıkış Katmanı
     
-    model.add(Conv2D(3, (3,3), activation='tanh', padding='same'))
+    model.add(Conv2DTranspose(3, (3,3), activation='tanh', padding='same'))
     
     return model
 
